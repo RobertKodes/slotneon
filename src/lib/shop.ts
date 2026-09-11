@@ -463,7 +463,7 @@ function drawWindow(ctx: CanvasRenderingContext2D, L: Layout, eng: Engine, now: 
 export function drawFrame(ctx: CanvasRenderingContext2D, L: Layout, eng: Engine, now: number): void {
   const fee = visualFee(eng)
   drawInterior(ctx, L, fee)
-  drawChalkboard(ctx, L, fee)
+  if (L.w >= 720) drawChalkboard(ctx, L, fee)
   drawClock(ctx, L, eng.slot, eng.tick, eng.reduced, now)
   drawBreaker(ctx, L, eng.held)
   drawTransformers(ctx, L, fee, now, eng.reduced, eng.held)

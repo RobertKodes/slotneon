@@ -1,7 +1,7 @@
 const DEFAULTS = [
-  'https://solana-mainnet.publicnode.com',
   'https://solana-rpc.publicnode.com',
   'https://solana.publicnode.com',
+  'https://solana-mainnet.publicnode.com',
   'https://api.mainnet-beta.solana.com',
 ]
 

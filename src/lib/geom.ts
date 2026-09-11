@@ -86,17 +86,6 @@ function arrow(x: number, y: number, w: number, h: number): Pt[] {
   ]
 }
 
-function spiral(cx: number, cy: number, r0: number, r1: number, turns: number, steps: number): Pt[] {
-  const out: Pt[] = []
-  for (let i = 0; i <= steps; i++) {
-    const t = i / steps
-    const a = t * turns * Math.PI * 2
-    const r = r0 + (r1 - r0) * t
-    out.push({ x: cx + Math.cos(a) * r, y: cy + Math.sin(a) * r * 0.78 })
-  }
-  return out
-}
-
 export function makeLayout(w: number, h: number): Layout {
   const mobile = w < 720
   const s = Math.min(w, h)
@@ -139,28 +128,34 @@ export function makeLayout(w: number, h: number): Layout {
   const bh = benchH
 
   const system = cubic(
-    { x: bx + bw * 0.08, y: by + bh * 0.42 },
-    { x: bx + bw * 0.28, y: by + bh * 0.08 },
-    { x: bx + bw * 0.55, y: by + bh * 0.78 },
-    { x: bx + bw * 0.92, y: by + bh * 0.38 },
+    { x: bx + bw * 0.05, y: by + bh * 0.2 },
+    { x: bx + bw * 0.3, y: by + bh * 0.02 },
+    { x: bx + bw * 0.64, y: by + bh * 0.36 },
+    { x: bx + bw * 0.95, y: by + bh * 0.16 },
     28,
   )
 
   const token = cubic(
-    { x: bx + bw * 0.18, y: by + bh * 0.78 },
-    { x: bx + bw * 0.18, y: by + bh * 0.22 },
-    { x: bx + bw * 0.48, y: by + bh * 0.22 },
-    { x: bx + bw * 0.48, y: by + bh * 0.78 },
-    24,
+    { x: bx + bw * 0.08, y: by + bh * 0.9 },
+    { x: bx + bw * 0.08, y: by + bh * 0.46 },
+    { x: bx + bw * 0.3, y: by + bh * 0.46 },
+    { x: bx + bw * 0.3, y: by + bh * 0.9 },
+    22,
   )
 
-  const compute = zig(bx + bw * 0.58, by - bh * 1.55, bw * 0.09, bh * 1.15, 7)
+  const compute = zig(bx + bw * 0.5, by - bh * 2.2, bw * 0.12, bh * 1.05, 6)
 
-  const dex = circle(bx + bw * 0.82, by - bh * 1.15, Math.max(28, bw * 0.09), 32)
+  const dex = circle(bx + bw * 0.78, by - bh * 1.5, Math.max(32, bw * 0.1), 32)
 
-  const stake = arrow(bx + bw * 0.52, by + bh * 0.58, bw * 0.28, bh * 0.32)
+  const stake = arrow(bx + bw * 0.4, by + bh * 0.52, bw * 0.28, bh * 0.38)
 
-  const other = spiral(bx + bw * 0.78, by + bh * 0.62, 6, Math.max(22, bw * 0.07), 2.15, 40)
+  const other = cubic(
+    { x: bx + bw * 0.72, y: by + bh * 0.9 },
+    { x: bx + bw * 0.98, y: by + bh * 0.92 },
+    { x: bx + bw * 0.99, y: by + bh * 0.38 },
+    { x: bx + bw * 0.76, y: by + bh * 0.46 },
+    24,
+  )
 
   const hangingCompute: Pt[] = compute.map((p) => ({ x: p.x, y: p.y }))
   const hangingDex: Pt[] = dex.map((p) => ({ x: p.x, y: p.y }))
