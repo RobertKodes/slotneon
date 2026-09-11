@@ -74,9 +74,9 @@ If Pages 404s after merge: GitHub repo Settings → Pages → source **`gh-pages
 
 Public RPC, rotating on failure (no keys):
 
-- `solana-mainnet.publicnode.com`
 - `solana-rpc.publicnode.com`
 - `solana.publicnode.com`
+- `solana-mainnet.publicnode.com`
 - `api.mainnet-beta.solana.com` (fallback; some networks 403)
 
 Override with `VITE_RPC_URL`. Methods: `getSlot`, `getRecentPerformanceSamples`, `getRecentPrioritizationFees`, a slow rotate of `getSignaturesForAddress` across program lanes, and an occasional `getBlock` with `transactionDetails: "signatures"` for density. If a method 4xxs we stop asking.
