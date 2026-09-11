@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>slotneon — neon shop · solana mainnet</title>
+    <meta
+      name="description"
+      content="Live Solana mainnet as a neon-bender’s night shop. Tubes light by program family. Ballast glow is fee pressure."
+    />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+  </head>
+  <body>
+    <div id="shop">
+      <header class="mast">
+        <p class="inv">NIGHT BENDER · ALLEY WINDOW</p>
+        <h1>SLOTNEON</h1>
+        <p class="tag">glass tubes · solana mainnet</p>
+      </header>
+
+      <canvas id="pane" aria-label="Neon shop window driven by live Solana mainnet"></canvas>
+
+      <aside class="ticket" aria-label="Shop ticket">
+        <span class="ticket-pin ticket-pin-l"></span>
+        <span class="ticket-pin ticket-pin-r"></span>
+        <p class="ticket-mark">RK · BENDER 04 · NIGHT</p>
+        <dl>
+          <div>
+            <dt>SLOT</dt>
+            <dd id="read-slot">—</dd>
+          </div>
+          <div>
+            <dt>SAMPLE</dt>
+            <dd id="read-tps">— tx/s</dd>
+          </div>
+          <div>
+            <dt>BALLAST</dt>
+            <dd id="read-fee">idle</dd>
+          </div>
+          <div>
+            <dt>WIRE</dt>
+            <dd id="read-wire">seeking</dd>
+          </div>
+          <div class="scorch-row">
+            <dt>SCORCH</dt>
+            <dd id="read-stains">0</dd>
+          </div>
+        </dl>
+        <div class="glow-legend">
+          <span>fee</span>
+          <span class="glow-bar"></span>
+          <span>hot</span>
+        </div>
+        <ul class="dye-key">
+          <li data-band="system"><span class="swatch swatch-system"></span> system</li>
+          <li data-band="token"><span class="swatch swatch-token"></span> token</li>
+          <li data-band="compute"><span class="swatch swatch-compute"></span> cu budget</li>
+          <li data-band="dex"><span class="swatch swatch-dex"></span> dex</li>
+          <li data-band="stake"><span class="swatch swatch-stake"></span> stake</li>
+          <li data-band="other"><span class="swatch swatch-other"></span> other</li>
+          <li><span class="swatch swatch-fail"></span> fail / scorch</li>
+        </ul>
+        <button id="hold" class="hold" type="button" aria-pressed="false">
+          <span class="hold-lamp"></span>
+          MAIN BREAKER
+        </button>
+        <p class="ticket-note">
+          Space throws the knife. Tap a tube to overdrive that gas. First click arms the ballast buzz.
+        </p>
+      </aside>
+
+      <p class="curb">
+        Public RPC. No keys. Failed txs sputter pink, then leave a scorch on the bench.
+      </p>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
